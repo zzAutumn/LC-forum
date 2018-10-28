@@ -2,7 +2,7 @@
  * @Author: yezi
  * @Date: 2018-10-28 17:02:32
  * @Last Modified by: yezi
- * @Last Modified time: 2018-10-28 17:29:18
+ * @Last Modified time: 2018-10-28 20:22:32
  * 首页注册modal
  */
 
@@ -24,6 +24,9 @@
               </v-flex>
               <v-flex xs12>
                 <v-text-field label="Password*" type="password" required></v-text-field>
+              </v-flex>
+              <v-flex xs12>
+                <v-text-field label="PasswordConfirm*" type="password" required></v-text-field>
               </v-flex>
             </v-layout>
           </v-container>

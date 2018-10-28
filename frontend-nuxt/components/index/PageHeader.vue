@@ -1,7 +1,14 @@
+/*
+ * @Author: yezi
+ * @Date: 2018-10-28 20:06:54
+ * @Last Modified by: yezi
+ * @Last Modified time: 2018-10-28 20:46:26
+ * 首页header
+ */
+
 <template>
-<v-content>
-  <v-container fluid>
-    <!-- <v-layout class="header">
+  <div>
+    <v-layout class="header">
       <v-flex class="logo-text">Let's <span>Code!</span></v-flex>
       <v-flex md8 sm8 hidden-xs-only>
         <v-layout class="text-center">
@@ -10,61 +17,40 @@
           <v-flex v-for="i in backTitleArr" :key="`2${i}`" class="title-flex"><span>{{i}}</span></v-flex>
         </v-layout>
       </v-flex>
-      <v-flex class="text-right" @click="singUp">Sign In</v-flex>
-    </v-layout>
-    -->
-    <page-header
-      :frontTitleArr='frontTitleArr'
-      :backTitleArr='backTitleArr'
-      @signUpModal='singUp'
-    ></page-header>
-    <v-layout class="banner" hidden-xs-only justify-center>
-      <v-flex md10 sm10>
-        <img src="@/assets/images/banner.jpg" class="banner-img">
+      <v-flex class="text-right" @click="singUp">
+        <!-- Sign In -->
+        <avatar></avatar>
       </v-flex>
     </v-layout>
-
-    <page-footer></page-footer>
-    <!-- 注册modal -->
-    <login-modal
-      :signUpDialog="signUpDialog"
-      @closeModal='closeSingUpModal'
-    ></login-modal>
-  </v-container>
-</v-content>
+  </div>
 </template>
 
 <script>
-import PageHeader from '@/components/index/PageHeader';
-import LoginModal from '@/components/index/LoginModal';
-import PageFooter from '@/components/index/PageFooter';
+import Avatar from './Avatar';
 
 export default {
-  head: {
-    link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rosario:700i' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Patrick+Hand' }
-    ]
-  },
+  name: 'PageHeader',
   components: {
-    LoginModal,
-    PageFooter,
-    PageHeader
+    Avatar
+  },
+  props: {
+    frontTitleArr: {
+      type: Array,
+      default: () => []
+    },
+    backTitleArr: {
+      type: Array,
+      default: () => []
+    }
   },
   data() {
     return {
-      frontTitleArr: ['Js','Vue', 'React', 'Angular', 'Css'],
-      backTitleArr: ['Java', 'Python', 'C', 'Ruby', 'Golang'],
-      signUpDialog: false
+
     }
   },
   methods: {
-    // 打开注册modal
     singUp() {
-      this.signUpDialog = true;
-    },
-    closeSingUpModal() {
-      this.signUpDialog = false;
+      // this.$emit('signUpModal')
     }
   }
 }
@@ -75,11 +61,6 @@ $red: #F37272;
 $duration: .2s;
 $distance: 8px;
 $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
-
-.container{
-  padding: 0;
-  max-width: 1200px;
-}
 .header{
   margin-top: 40px;
 }
@@ -147,14 +128,5 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     }
   }
 }
-.banner{
-  height: 200px;
-  margin-top: 20px;
-  img{
-    height: 100%;
-    width: 100%;
-  }
-}
 </style>
-
 
