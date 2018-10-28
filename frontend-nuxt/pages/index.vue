@@ -10,27 +10,58 @@
           <v-flex v-for="i in backTitleArr" :key="`2${i}`" class="title-flex"><span>{{i}}</span></v-flex>
         </v-layout>
       </v-flex>
-      <v-flex class="text-right">Sign In</v-flex>
+      <v-flex class="text-right" @click="singUp">Sign In</v-flex>
     </v-layout>
+    <v-layout class="banner" hidden-xs-only justify-center>
+      <v-flex md10 sm10>
+        <img src="@/assets/images/banner.jpg" class="banner-img">
+      </v-flex>
+    </v-layout>
+
+    <page-footer></page-footer>
+    <!-- 注册modal -->
+    <login-modal
+      :signUpDialog="signUpDialog"
+      @closeModal='closeSingUpModal'
+    ></login-modal>
   </v-container>
 </v-content>
 </template>
 
 <script>
+import LoginModal from '@/components/index/LoginModal';
+import PageFooter from '@/components/index/PageFooter';
 
 export default {
+  head: {
+    link: [
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rosario:700i' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Patrick+Hand' }
+    ]
+  },
+  components: {
+    LoginModal,
+    PageFooter
+  },
   data() {
     return {
       frontTitleArr: ['Js','Vue', 'React', 'Angular', 'Css'],
-      backTitleArr: ['Java', 'Python', 'C', 'Ruby', 'Golang']
+      backTitleArr: ['Java', 'Python', 'C', 'Ruby', 'Golang'],
+      signUpDialog: false
+    }
+  },
+  methods: {
+    singUp() {
+      this.signUpDialog = true;
+    },
+    closeSingUpModal() {
+      this.signUpDialog = false;
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Rosario:700i');
-@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 $red: #F37272;
 
 $duration: .2s;
@@ -106,6 +137,14 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
         transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
       }
     }
+  }
+}
+.banner{
+  height: 200px;
+  margin-top: 20px;
+  img{
+    height: 100%;
+    width: 100%;
   }
 }
 </style>
