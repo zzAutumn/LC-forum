@@ -26,7 +26,7 @@ export default {
   name: 'Avatar',
   data() {
     return {
-      items: ['我的主页', 'item2', 'item3']
+      items: ['我的主页', 'demo', 'item3']
     }
   },
   methods: {
@@ -35,7 +35,8 @@ export default {
         case '我的主页':
           this.$router.push({name: 'personal'})
           break;
-
+        case 'demo':
+          this.$router.push({name: 'demo'})
         default:
           break;
       }

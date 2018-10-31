@@ -1,18 +1,6 @@
 <template>
 <v-content>
   <v-container fluid>
-    <!-- <v-layout class="header">
-      <v-flex class="logo-text">Let's <span>Code!</span></v-flex>
-      <v-flex md8 sm8 hidden-xs-only>
-        <v-layout class="text-center">
-          <v-flex v-for="i in frontTitleArr" :key="`1${i}`" class="title-flex"><span>{{i}}</span></v-flex>
-          <v-flex  class="verti-line">|</v-flex>
-          <v-flex v-for="i in backTitleArr" :key="`2${i}`" class="title-flex"><span>{{i}}</span></v-flex>
-        </v-layout>
-      </v-flex>
-      <v-flex class="text-right" @click="singUp">Sign In</v-flex>
-    </v-layout>
-    -->
     <page-header
       :frontTitleArr='frontTitleArr'
       :backTitleArr='backTitleArr'
@@ -40,12 +28,6 @@ import LoginModal from '@/components/index/LoginModal';
 import PageFooter from '@/components/index/PageFooter';
 
 export default {
-  head: {
-    link: [
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rosario:700i' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Patrick+Hand' }
-    ]
-  },
   components: {
     LoginModal,
     PageFooter,

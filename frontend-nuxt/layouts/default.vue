@@ -14,6 +14,12 @@
 
 <script>
 export default {
+  head: {
+    link: [
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Rosario:700i' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Patrick+Hand' }
+    ]
+  },
   data() {
     return {
 
