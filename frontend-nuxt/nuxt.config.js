@@ -50,8 +50,12 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'https://forbid.csmc-cloud.com',
+    proxy: true
   },
-
+  // proxy: {
+  //   '/': { target: 'https://forbid.csmc-cloud.com', pathRewrite: {'^/': ''} }
+  // },
   /*
   ** Build configuration
   */
