@@ -58,71 +58,20 @@
        </v-layout>
      </v-toolbar>
 
-     <!-- 图片swiper区 -->
-     <v-layout class="product-area">
-       <v-flex>
-         <!-- 左侧图片展示区 -->
-         <v-layout column>
-           <v-flex><div class="circular"></div></v-flex>
-           <v-flex>
-             <v-carousel>
-                <v-carousel-item
-                  v-for="(item,i) in items"
-                  :key="i"
-                  :src="item.src"
-                ></v-carousel-item>
-              </v-carousel>
-           </v-flex>
-           <v-flex>
-             <img src="/images/business-brand.png" alt="business-brand">
-           </v-flex>
-         </v-layout>
-       </v-flex>
-       <v-flex>
-         <!-- 右侧商品价格 信息 -->
-         <v-layout column>
-           <v-flex>
-             <p>JULIAN</p>
-             <p>Mustard Yellow 3-Seater Sofa Bed, mattress 14 cm</p>
-             <p><a href="">Find out more</a></p>
-           </v-flex>
-           <v-flex>£1,049.00</v-flex>
-           <v-flex>
-             <p>Available in a range of design:</p>
-             <v-select
-              :items="selectItems"
-              label="Outline style"
-              outline
-            ></v-select>
-           </v-flex>
-           <v-flex>
-             <p>color: </p>
-             
-           </v-flex>
-           <v-flex></v-flex>
-           <v-flex></v-flex>
-         </v-layout>
-       </v-flex>
-     </v-layout>
+    <!-- 图片swiper区 -->
+    <pic-info-panel></pic-info-panel>
   </div>
 </template>
 
 <script>
+import PicInfoPanel from '@/components/demo/PicInfoPanel';
 export default {
+  components: {
+    PicInfoPanel
+  },
   data() {
     return {
-      items: [
-        {
-          src: '/images/sofa1.png'
-        },
-        {
-          src: '/images/sofa2.png'
-        },
-        {
-          src: '/images/sofa3.png'
-        }
-      ],
-      selectItems: ['A', 'B', 'C']
+
     }
   },
   methods: {
@@ -171,14 +120,6 @@ export default {
     img{
       height: 42px;
     }
-  }
-}
-.product-area{
-  .circular{
-    height: 90px;
-    width: 90px;
-    background: #c65b51;
-    border-radius: 50%;
   }
 }
 </style>
