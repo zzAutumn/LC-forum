@@ -31,12 +31,19 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['~/assets/style/app.styl'],
+  css: [
+    '~/assets/style/app.styl',
+    'element-ui/lib/theme-chalk/reset.css',
+    'element-ui/lib/theme-chalk/index.css'
+  ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/vuetify'],
+  plugins: [
+    { src: '~plugins/element-ui', ssr: true },
+    { src: '~plugins/vuetify', ssr: true }
+  ],
 
   /*
   ** Nuxt.js modules
@@ -51,16 +58,33 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'https://forbid.csmc-cloud.com',
+    baseURL: 'http://localhost:3005',
     proxy: true
   },
-  proxy: {
-    '/': { target: 'https://forbid.csmc-cloud.com', pathRewrite: { '^/': '' } }
+  // proxy: {
+  //   '/': { target: 'http://localhost:3005', pathRewrite: { '^/': '' } }
+  // },
+  babel: {
+    plugins: [
+      [
+        'component',
+        [
+          {
+            libraryName: 'element-ui',
+            styleLibraryName: 'theme-chalk'
+          },
+          'transform-async-to-generator',
+          'transform-runtime'
+        ]
+      ]
+    ],
+    comments: true
   },
   /*
   ** Build configuration
   */
   build: {
+    vendor: ['axios', 'element-ui'],
     /*
     ** You can extend webpack config here
     */
