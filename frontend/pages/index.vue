@@ -14,7 +14,8 @@ export default {
   components: {
     PageHeader,
     TagBar
-  }
+  },
+  middleware: 'auth'
 }
 </script>
 

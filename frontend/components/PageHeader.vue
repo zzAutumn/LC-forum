@@ -30,7 +30,12 @@
       <el-button>通知</el-button>
     </el-badge>
     <div class="avatar">
-      <img src="@/assets/images/jessica.jpeg" alt="me">
+      <el-dropdown trigger="click">
+        <img src="@/assets/images/jessica.jpeg" alt="me">
+        <el-dropdown-menu slot="dropdown" class="header-dropdown">
+          <el-dropdown-item>退出</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </el-header>
 </template>
@@ -88,5 +93,8 @@ export default {
 <style>
 .item .el-badge__content.is-fixed {
   top: 15px;
+}
+.header-dropdown {
+  top: 50px !important;
 }
 </style>
