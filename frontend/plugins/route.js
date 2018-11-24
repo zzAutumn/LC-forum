@@ -4,12 +4,10 @@ export default ({ app }) => {
     redirectUrl = 'login'
 
   app.router.afterEach((to, from) => {
-    if (isClient) {
-      if (to.path !== '/login' && localStorage.getItem('username') === null) {
-        app.router.push('/login')
-      } else {
-        app.router.push(to.path)
-      }
+    if (to.path !== '/login' && localStorage.getItem('username') === null) {
+      app.router.push('/login')
+    } else {
+      app.router.push(to.path)
     }
   })
 }
