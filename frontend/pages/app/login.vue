@@ -24,6 +24,7 @@
 </template>
 
 <script>
+import request from '~/service'
 export default {
   name: 'Login',
   data() {
@@ -51,9 +52,10 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          console.log('submit')
+          request.post('/api/user/addUser').then(res => {
+            console.log(res)
+          })
         } else {
-          console.log('error submit')
           return false
         }
       })
