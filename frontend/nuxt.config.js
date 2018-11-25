@@ -2,7 +2,9 @@ const pkg = require('./package')
 
 module.exports = {
   mode: 'universal',
-
+  env: {
+    baseUrl: process.env.NODE_ENV === 'production' ? 'app' : '/'
+  },
   /*
   ** Headers of the page
   */
@@ -63,5 +65,9 @@ module.exports = {
         })
       }
     }
+  },
+  router: {
+    // 在每页渲染前运行 middleware/auth.js 中间件的逻辑
+    middleware: 'auth'
   }
 }

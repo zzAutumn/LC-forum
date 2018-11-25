@@ -4,6 +4,5 @@ export default function({ route, req, res, redirect }) {
     redirectUrl = 'login'
 
   if (isClient) {
-    console.log(route, req, res)
   }
 }
