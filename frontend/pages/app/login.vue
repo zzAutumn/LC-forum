@@ -50,11 +50,10 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate(async valid => {
         if (valid) {
-          request.post('/api/user/addUser').then(res => {
-            console.log(res)
-          })
+          const result = await this.$service.base.post('/api/user/addUser', {})
+          console.log(result)
         } else {
           return false
         }
