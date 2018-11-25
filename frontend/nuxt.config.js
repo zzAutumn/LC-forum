@@ -3,7 +3,7 @@ const pkg = require('./package')
 module.exports = {
   mode: 'universal',
   env: {
-    baseUrl: process.env.NODE_ENV === 'production' ? 'app' : '/'
+    baseUrl: process.env.NODE_ENV === 'production' ? '/app/' : '/'
   },
   /*
   ** Headers of the page
